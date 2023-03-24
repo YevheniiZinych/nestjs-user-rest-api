@@ -1,0 +1,15 @@
+# version: '3.8'
+
+# services:
+#   db:
+#     container_name: postgres-user
+#     image: postgres: 15.0-alpine
+#     restart: always
+#     enviroment:
+#     - POSRGRES_USER=${TYPEORM_USERNAME}
+#     - POSRGRES_PASSWORD=${TYPEORM_PASSWORD}
+#     - POSRGRES_DB=${TYPEORM_DATABASE}
+#     volumes:
+#       - ./pgdata:/var/lib/postgresql/data
+#     ports:
+#       -${TYPEORM_PORT}:${TYPEORM_PORT}

@@ -47,6 +47,11 @@ export class UserService {
     return await this.userRepository.findOne({ where: { id } });
   }
 
+  // get user by his role
+  public async getUserRole(role: string) {
+    return await this.userRepository.findOne({ where: { role } });
+  }
+
   // update all or one user rows
   public async updateUserData(id: number, body: UpdateUserDto) {
     return await this.userRepository.update({ id }, this.filterFields(body));

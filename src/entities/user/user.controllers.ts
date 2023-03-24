@@ -9,10 +9,12 @@ import {
   Param,
   ParseIntPipe,
   Body,
+  Query,
 } from '@nestjs/common';
 import { Response, Request } from 'express';
 import { UpdateUserDto } from './dto/updateUser.dto';
 import { UserService } from './user.service';
+import { UserRole } from './dto/roleUser.dto';
 
 @Controller('users')
 export class UserController {
@@ -24,9 +26,15 @@ export class UserController {
     return res.send({ status: 'ok', data: userData });
   }
 
+  @Get('/role')
+  async getUserByRole(@Res() res: Response, @Query() query: UserRole) {
+    const userData = await this.userService.getUserRole(query.role);
+
+    return res.send({ status: 'ok', data: userData });
+  }
+
   @Get('/:id')
   async getUserByID(
-    @Req() req: Request,
     @Param('id', ParseIntPipe) id: number,
     @Res() res: Response,
   ) {

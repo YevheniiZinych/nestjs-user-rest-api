@@ -47,7 +47,7 @@ export class UserService {
     return await this.userRepository.findOne({ where: { id } });
   }
 
-  // update all user rows
+  // update all or one user rows
   public async updateUserData(id: number, body: UpdateUserDto) {
     return await this.userRepository.update({ id }, this.filterFields(body));
   }
